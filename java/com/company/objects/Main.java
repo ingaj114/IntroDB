@@ -1,7 +1,4 @@
-package com.company;
-
-import com.company.objects.Books;
-import com.company.objects.Price;
+package com.company.objects;
 
 import java.util.*;
 
@@ -10,11 +7,11 @@ public class Main {
     public static void main(String[] args) {
 
         List<Price> priceList = new ArrayList<>();
-        priceList.add(new Price(1, 10.78f));
-        priceList.add(new Price(2, 4.99f));
-        priceList.add(new Price(3, 3.9f));
-        priceList.add(new Price(4, 11f));
-        priceList.add(new Price(5, 3.89f));
+        priceList.add(new Price(10.78f));
+        priceList.add(new Price(4.99f));
+        priceList.add(new Price(3.9f));
+        priceList.add(new Price(11f));
+        priceList.add(new Price(3.89f));
 
         Books books = new Books(1, "Cilveka berns", priceList);
         Books books2 = new Books(2, "Aktrise Ragares", priceList);
