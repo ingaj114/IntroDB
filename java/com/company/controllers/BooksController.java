@@ -17,10 +17,10 @@ public class BooksController {
     public static boolean addBook() {
 
         System.out.print("Enter the name of the book: ");
-        String name = scanner.next();
+        String name = scanner.nextLine();
 
         System.out.print("Enter the price of the book: ");
-        String price = scanner.next();
+        String price = scanner.nextLine();
 
         try {
             ps = getConnection().prepareStatement("INSERT INTO books(name, price) VALUES('" + name + "'," + price + ")");
@@ -63,12 +63,12 @@ public class BooksController {
 
     public static boolean changeBookName() {
         System.out.print("Enter a book name to change: ");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         System.out.print("Enter a new name: ");
-        String nameNew = scanner.next();
+        String nameAfter = scanner.nextLine();
 
         try {
-            ps = getConnection().prepareStatement("UPDATE books SET name='" + nameNew + "'WHERE name='" + name + "'");
+            ps = getConnection().prepareStatement("UPDATE books SET name='" + nameAfter + "'WHERE name='" + name + "'");
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -78,8 +78,8 @@ public class BooksController {
     }
 
     public static boolean deleteBookByName() {
-        System.out.print("Enter the id of the book: ");
-        String name = scanner.next();
+        System.out.print("Enter the name of the book: ");
+        String name = scanner.nextLine();
 
         try {
             //DELETE FROM books WHERE Name='Upe';
