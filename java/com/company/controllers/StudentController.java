@@ -10,7 +10,7 @@ import static com.company.dbhelper.DbConnection.getConnection;
 
 public class StudentController {
 
-    private static Scanner scanner = new Scanner((System.in));
+    private static Scanner scanner = new Scanner(System.in);
     private static PreparedStatement ps;
     private static ResultSet rs;
 
@@ -20,7 +20,7 @@ public class StudentController {
         String name = scanner.next();
 
         System.out.print("Enter the age of the student: ");
-        String age = scanner.next();;
+        String age = scanner.next();
 
         try {
             ps = getConnection().prepareStatement("INSERT INTO students(name, age) VALUES('" + name + "'," + age + ")");
@@ -33,7 +33,7 @@ public class StudentController {
     }
 
     public static Student getStudentById() {
-        System.out.print("Enter the id of the students: ");
+        System.out.print("Enter the id of the student: ");
         int id = scanner.nextInt();
 
         try {
@@ -61,5 +61,18 @@ public class StudentController {
         }
     }
 
+   /* public static boolean deleteBookByName() {
+        System.out.print("Enter the name of the book: ");
+        String bookToDelete = scanner.next();
 
+        try {
+            //DELETE FROM books WHERE Name='Upe';
+            ps = getConnection().prepareStatement("DELETE FROM books WHERE bookName =" + bookToDelete);
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Database error");
+            return false;
+        }
+    }*/
 }
