@@ -12,7 +12,7 @@ public class Main {
 
         DbConnection.getConnection();
         //StudentMenu.menu();
-        BooksMenu.bookMenu();
+        BooksMenu.menu();
     }
 
     //TASK
