@@ -18,7 +18,7 @@ public class StudentMenu {
 
         switch (option) {
             case 1:
-                System.out.println(StudentController.addStudent() ? "Successfully added new student" : "Student no added");;
+                System.out.println(StudentController.addStudent() ? "Successfully added new student" : "Student not added");
                 break;
             case 2:
                 System.out.println(StudentController.getStudentById().getName());
