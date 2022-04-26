@@ -61,18 +61,4 @@ public class StudentController {
         }
     }
 
-   /* public static boolean deleteBookByName() {
-        System.out.print("Enter the name of the book: ");
-        String bookToDelete = scanner.next();
-
-        try {
-            //DELETE FROM books WHERE Name='Upe';
-            ps = getConnection().prepareStatement("DELETE FROM books WHERE bookName =" + bookToDelete);
-            ps.execute();
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Database error");
-            return false;
-        }
-    }*/
 }

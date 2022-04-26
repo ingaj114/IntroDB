@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class StudentMenu {
 
-    public static void menu() {
+    public static void menuB() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("What do you want to do?: ");
@@ -25,7 +25,9 @@ public class StudentMenu {
                 break;
             default:
                 System.out.println("Invalid option, try again!");
-                menu();
+                menuB();
         }
     }
+
+
 }

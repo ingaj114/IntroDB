@@ -2,12 +2,10 @@ package com.company.objects;
 
 public class Student {
 
-    //define the properties of the student object
     private int id;
     private String name;
     private int age;
 
-    //define constructor
     public Student(int id, String name, int age) {
         this.id = id;
         this.name = name;
@@ -17,7 +15,6 @@ public class Student {
 
     }
 
-    //define getters and setters
     public int getId() {
         return id;
     }
