@@ -13,6 +13,9 @@ public class Student {
         this.name = name;
         this.age = age;
     }
+    public Student() {
+
+    }
 
     //define getters and setters
     public int getId() {

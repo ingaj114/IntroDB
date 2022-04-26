@@ -1,26 +1,30 @@
 package com.company.objects;
 
+import com.company.dbhelper.DbConnection;
+import com.company.menu.BooksMenu;
+import com.company.menu.StudentMenu;
+
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        List<Price> priceList = new ArrayList<>();
-        priceList.add(new Price(10.78f));
-        priceList.add(new Price(4.99f));
-        priceList.add(new Price(3.9f));
-        priceList.add(new Price(11f));
-        priceList.add(new Price(3.89f));
+        DbConnection.getConnection();
+        //StudentMenu.menu();
+        BooksMenu.bookMenu();
+    }
 
-        Books books = new Books(1, "Cilveka berns", priceList);
-        Books books2 = new Books(2, "Aktrise Ragares", priceList);
-        Books books3 = new Books(3, "Eksistencialisms", priceList);
-        Books books4 = new Books(4, "Enpils", priceList);
-        Books books5 = new Books(5, "Upe", priceList);
+    //TASK
+    //Create a BOOKControl and also Create a Book Menu
+    //using a template shown and we'll demo them
+        public static List<String> filterLessThanFive(List<Books> books) {
+            List<String> bookNames = new ArrayList<>();
+            for (int i = 0; i < books.size(); i++) {
+                if (books.get(i).getPrice() < 5) books.remove(books.get(i));
+            }
+            books.forEach(book -> bookNames.add(book.getName()));
 
-        System.out.println(books.getName());
-        System.out.println(books4.getName());
-
+            return bookNames;
     }
 }
