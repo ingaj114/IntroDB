@@ -77,13 +77,13 @@ public class BooksController {
         }
     }
 
-    public static boolean deleteBookByName() {
-        System.out.print("Enter the name of the book: ");
-        String name = scanner.nextLine();
+    public static boolean deleteBookById() {
+        System.out.print("Enter the id of the book: ");
+        String id = scanner.nextLine();
 
         try {
             //DELETE FROM books WHERE Name='Upe';
-            ps = getConnection().prepareStatement("DELETE FROM books WHERE name ='" + name + "'");
+            ps = getConnection().prepareStatement("DELETE FROM books WHERE id =" + id);
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -91,4 +91,7 @@ public class BooksController {
             return false;
         }
     }
+
+
+
 }
