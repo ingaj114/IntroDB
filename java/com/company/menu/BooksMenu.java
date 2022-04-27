@@ -13,7 +13,7 @@ public class BooksMenu {
         System.out.println("1. Add a new book");
         System.out.println("2. Get book by id");
         System.out.println("3. Edit the name of a book");
-        System.out.println("4. Delete a book by id");
+        System.out.println("4. Delete a book by name");
 
         System.out.print("Select an option: ");
         int option = scanner.nextInt();
