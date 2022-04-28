@@ -16,10 +16,10 @@ public class StudentController {
 
     public static boolean addStudent() {
 
-        System.out.print("Enter the name of the student: ");
+        System.out.print("Enter the name: ");
         String name = scanner.next();
 
-        System.out.print("Enter the age of the student: ");
+        System.out.print("Enter the age: ");
         String age = scanner.next();
 
         try {
@@ -33,7 +33,7 @@ public class StudentController {
     }
 
     public static Student getStudentById() {
-        System.out.print("Enter the id of the student: ");
+        System.out.print("Enter the id: ");
         int id = scanner.nextInt();
 
         try {
@@ -58,6 +58,80 @@ public class StudentController {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+    //Create a table called scores and it should have 5 fields called
+    //mathematics, english, physics and chemistry and student id
+    //attempt to add a 3 student's scores into the scores table
+
+    //hint: use the id of existing student
+    public static boolean addStudentScores() {
+        System.out.print("Enter the id: ");
+        int id = scanner.nextInt();
+        System.out.print("Enter the score in mathematics: ");
+        int math = scanner.nextInt();
+        System.out.print("Enter the score in english: ");
+        int eng = scanner.nextInt();
+        System.out.print("Enter the score in physics: ");
+        int phys = scanner.nextInt();
+        System.out.print("Enter the score in chemistry: ");
+        int chem = scanner.nextInt();
+
+        try {
+            //ps = getConnection().prepareStatement("INSERT INTO scores(studentid, mathematics, english, physics, chemistry) VALUES((SELECT * FROM students WHERE id =" + id + ")" + "," + math + "," + chem + "," + phys +")" + " + ");
+            ps = getConnection().prepareStatement("INSERT INTO scores(studentid, mathematics, english, physics, chemistry) " +
+                    "VALUES(" + id + "," + math + "," + eng + "," + phys + "," + chem + ")");
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Database error");
+            return false;
+        }
+    }
+    public static boolean deleteScore() {
+        System.out.print("Delete score id: ");
+        int id = scanner.nextInt();
+
+        try {
+            ps = getConnection().prepareStatement("DELETE FROM scores WHERE id =" + id);
+            ps.execute();
+            System.out.println("Deleted successfully");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Database error");
+            return false;
+        }
+    }
+    public static boolean editScore() {
+        System.out.print("Enter an id to change: ");
+        int id = scanner.nextInt();
+        System.out.print("Enter a subject to change: ");
+        String subject = scanner.next();
+        System.out.print("Enter score: ");
+        int score = scanner.nextInt();
+
+        try {
+            ps = getConnection().prepareStatement("UPDATE scores SET " + subject + " = " + score + "WHERE id=" + id);
+            ps.execute();
+            System.out.println("Changed successfully");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Database error");
+            return false;
+        }
+    }
+    // Add an overloaded deleteScore() method that takes id(int) as a parameter to allow you to
+    // delete a student’s score when a student is deleted from the database.
+
+    public static boolean deleteScore(int id) {
+        try {
+            ps = getConnection().prepareStatement("DELETE FROM students WHERE id =" + id);
+            ps.execute();
+            System.out.println("Deleted successfully");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Database error");
+            return false;
         }
     }
 

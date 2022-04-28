@@ -9,9 +9,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        DbConnection.getConnection();
-        //StudentMenu.menu();
-        BooksMenu.menuBooks();
+        //DbConnection.getConnection();
+        StudentMenu.menu();
+        //BooksMenu.menuBooks();
     }
 /*    //TASK
     //Create a BOOKControl and also Create a Book Menu
