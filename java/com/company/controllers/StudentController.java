@@ -18,7 +18,6 @@ public class StudentController {
 
         System.out.print("Enter the name: ");
         String name = scanner.next();
-
         System.out.print("Enter the age: ");
         String age = scanner.next();
 
@@ -95,7 +94,7 @@ public class StudentController {
         try {
             ps = getConnection().prepareStatement("DELETE FROM scores WHERE id =" + id);
             ps.execute();
-            System.out.println("Deleted successfully");
+            System.out.println("Student deleted successfully");
             return true;
         } catch (SQLException e) {
             System.out.println("Database error");
@@ -127,7 +126,8 @@ public class StudentController {
         try {
             ps = getConnection().prepareStatement("DELETE FROM students WHERE id =" + id);
             ps.execute();
-            System.out.println("Deleted successfully");
+            System.out.println("Score deleted successfully");
+
             return true;
         } catch (SQLException e) {
             System.out.println("Database error");

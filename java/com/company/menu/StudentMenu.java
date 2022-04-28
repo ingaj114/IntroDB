@@ -23,13 +23,13 @@ public class StudentMenu {
 
         switch (option) {
             case 1:
-                System.out.println(StudentController.addStudent() ? "Successfully added new student" : "Student not added");
+                System.out.println(StudentController.addStudent() ? "Student successfully added" : "Student not added");
                 break;
             case 2:
                 System.out.println(StudentController.getStudentById().getName());
                 break;
             case 3:
-                System.out.println(StudentController.addStudentScores() ? "Successfully added" : "Not added");
+                System.out.println(StudentController.addStudentScores() ? "Scores successfully added" : "Scores not added");
                 break;
             case 4:
                StudentController.deleteScore();
@@ -39,7 +39,7 @@ public class StudentMenu {
                 break;
             case 6:
                 StudentController.deleteScore();
-                StudentController.deleteScore(3);
+                StudentController.deleteScore(1);
                 break;
             default:
                 System.out.println("Invalid option, try again!");
