@@ -81,18 +81,7 @@ public class StudentController {
             return false;
         }
     }
-    public static void deleteScore() {
-        System.out.print("Delete score id: ");
-        int id = scanner.nextInt();
 
-        try {
-            ps = getConnection().prepareStatement("DELETE FROM scores WHERE id =" + id);
-            ps.execute();
-            System.out.println("Student deleted successfully");
-        } catch (SQLException e) {
-            System.out.println("Database error");
-        }
-    }
     public static void editScore() {
         System.out.print("Enter an id to change: ");
         int id = scanner.nextInt();
@@ -111,6 +100,19 @@ public class StudentController {
     }
     // Add an overloaded deleteScore() method that takes id(int) as a parameter to allow you to
     // delete a student’s score when a student is deleted from the database.
+    public static void deleteScore() {
+        System.out.print("Delete score id: ");
+        int id = scanner.nextInt();
+
+        try {
+            ps = getConnection().prepareStatement("DELETE FROM scores WHERE id =" + id);
+            ps.execute();
+            deleteScore(id);
+            System.out.println("Student deleted successfully");
+        } catch (SQLException e) {
+            System.out.println("Database error");
+        }
+    }
 
     public static void deleteScore(int id) {
         try {

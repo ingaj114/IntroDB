@@ -1,6 +1,6 @@
 package com.company.objects;
-
 import com.company.dbhelper.DbConnection;
+import com.company.login.Auth;
 import com.company.menu.BooksMenu;
 import com.company.menu.StudentMenu;
 
@@ -9,9 +9,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        if (Auth.signUp()) {
+            StudentMenu.menu();
+        } else {
+            System.out.println("Invalid login credentials");
+        }
+
         //DbConnection.getConnection();
-        StudentMenu.menu();
-        //BooksMenu.menuBooks();
+        //StudentMenu.menu();
     }
 /*    //TASK
     //Create a BOOKControl and also Create a Book Menu

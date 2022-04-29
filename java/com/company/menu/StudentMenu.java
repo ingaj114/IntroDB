@@ -29,15 +29,14 @@ public class StudentMenu {
             case 3:
                 System.out.println(StudentController.addStudentScores() ? "Scores successfully added" : "Scores not added");
                 break;
-            case 4:
-               StudentController.deleteScore();
-                break;
+            //case 4:
+               //StudentController.deleteScore();
+                //break;
             case 5:
                 StudentController.editScore();
                 break;
             case 6:
                 StudentController.deleteScore();
-                StudentController.deleteScore(6);
                 break;
             default:
                 System.out.println("Invalid option, try again!");
