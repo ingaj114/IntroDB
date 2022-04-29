@@ -9,15 +9,13 @@ public class StudentMenu {
     public static void menu() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("What do you want to do?: ");
         System.out.println("1. Add a student");
-        System.out.println("2. Get student");
-        System.out.println("3. Add score");
-        System.out.println("4. Delete score");
-        System.out.println("5. Edit score");
-        System.out.println("6. Delete score and student");
-
-
+        System.out.println("2. Get a student");
+        System.out.println("3. Add a score");
+        System.out.println("4. Delete a score");
+        System.out.println("5. Edit a score");
+        System.out.println("6. Delete a score & student");
+        System.out.println();
         System.out.print("Select an option: ");
         int option = scanner.nextInt();
 
@@ -39,7 +37,7 @@ public class StudentMenu {
                 break;
             case 6:
                 StudentController.deleteScore();
-                StudentController.deleteScore(1);
+                StudentController.deleteScore(6);
                 break;
             default:
                 System.out.println("Invalid option, try again!");

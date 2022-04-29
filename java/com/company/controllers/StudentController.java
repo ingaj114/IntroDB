@@ -59,11 +59,6 @@ public class StudentController {
             return null;
         }
     }
-    //Create a table called scores and it should have 5 fields called
-    //mathematics, english, physics and chemistry and student id
-    //attempt to add a 3 student's scores into the scores table
-
-    //hint: use the id of existing student
     public static boolean addStudentScores() {
         System.out.print("Enter the id: ");
         int id = scanner.nextInt();
@@ -77,7 +72,6 @@ public class StudentController {
         int chem = scanner.nextInt();
 
         try {
-            //ps = getConnection().prepareStatement("INSERT INTO scores(studentid, mathematics, english, physics, chemistry) VALUES((SELECT * FROM students WHERE id =" + id + ")" + "," + math + "," + chem + "," + phys +")" + " + ");
             ps = getConnection().prepareStatement("INSERT INTO scores(studentid, mathematics, english, physics, chemistry) " +
                     "VALUES(" + id + "," + math + "," + eng + "," + phys + "," + chem + ")");
             ps.execute();
@@ -87,7 +81,7 @@ public class StudentController {
             return false;
         }
     }
-    public static boolean deleteScore() {
+    public static void deleteScore() {
         System.out.print("Delete score id: ");
         int id = scanner.nextInt();
 
@@ -95,13 +89,11 @@ public class StudentController {
             ps = getConnection().prepareStatement("DELETE FROM scores WHERE id =" + id);
             ps.execute();
             System.out.println("Student deleted successfully");
-            return true;
         } catch (SQLException e) {
             System.out.println("Database error");
-            return false;
         }
     }
-    public static boolean editScore() {
+    public static void editScore() {
         System.out.print("Enter an id to change: ");
         int id = scanner.nextInt();
         System.out.print("Enter a subject to change: ");
@@ -113,25 +105,20 @@ public class StudentController {
             ps = getConnection().prepareStatement("UPDATE scores SET " + subject + " = " + score + "WHERE id=" + id);
             ps.execute();
             System.out.println("Changed successfully");
-            return true;
         } catch (SQLException e) {
             System.out.println("Database error");
-            return false;
         }
     }
     // Add an overloaded deleteScore() method that takes id(int) as a parameter to allow you to
     // delete a student’s score when a student is deleted from the database.
 
-    public static boolean deleteScore(int id) {
+    public static void deleteScore(int id) {
         try {
             ps = getConnection().prepareStatement("DELETE FROM students WHERE id =" + id);
             ps.execute();
             System.out.println("Score deleted successfully");
-
-            return true;
         } catch (SQLException e) {
             System.out.println("Database error");
-            return false;
         }
     }
 
