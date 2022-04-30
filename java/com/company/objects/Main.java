@@ -9,14 +9,12 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        if (Auth.signUp()) {
-            StudentMenu.menu();
-        } else {
-            System.out.println("Invalid login credentials");
-        }
-
-        //DbConnection.getConnection();
-        //StudentMenu.menu();
+//        if (Auth.signUp()) {
+//            StudentMenu.menu();
+//        } else {
+//            System.out.println("Invalid login credentials");
+//        }
+        StudentMenu.menu();
     }
 /*    //TASK
     //Create a BOOKControl and also Create a Book Menu

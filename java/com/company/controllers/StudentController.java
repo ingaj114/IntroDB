@@ -17,9 +17,9 @@ public class StudentController {
     public static boolean addStudent() {
 
         System.out.print("Enter the name: ");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         System.out.print("Enter the age: ");
-        String age = scanner.next();
+        int age = scanner.nextInt();
 
         try {
             ps = getConnection().prepareStatement("INSERT INTO students(name, age) VALUES('" + name + "'," + age + ")");
@@ -83,11 +83,11 @@ public class StudentController {
     }
 
     public static void editScore() {
-        System.out.print("Enter an id to change: ");
+        System.out.print("Enter the id to change: ");
         int id = scanner.nextInt();
         System.out.print("Enter a subject to change: ");
         String subject = scanner.next();
-        System.out.print("Enter score: ");
+        System.out.print("Enter a score: ");
         int score = scanner.nextInt();
 
         try {
@@ -95,9 +95,26 @@ public class StudentController {
             ps.execute();
             System.out.println("Changed successfully");
         } catch (SQLException e) {
-            System.out.println("Database error");
+            e.printStackTrace();
         }
     }
+    public static void editStudent() {
+        System.out.print("Enter the id to change: ");
+        int id = scanner.nextInt();
+        System.out.print("What field would you like to edit (name/age): ");
+        String fieldToEdit = scanner.next();
+        System.out.print("Enter a value you want to edit to: ");
+        String value = scanner.next();
+
+        try {
+            ps = getConnection().prepareStatement("UPDATE students SET " + fieldToEdit + " = '" + value + "' WHERE id=" + id);
+            ps.execute();
+            System.out.println("Changed successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     // Add an overloaded deleteScore() method that takes id(int) as a parameter to allow you to
     // delete a student’s score when a student is deleted from the database.
     public static void deleteScore() {
