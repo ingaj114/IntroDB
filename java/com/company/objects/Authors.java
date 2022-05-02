@@ -1,25 +1,35 @@
 package com.company.objects;
 
 public class Authors {
-    private int bookid;
+    private int id;
+    private int bookId;
     private String name;
     private int age;
 
-    public Authors(int bookid, String name, int age) {
-        this.bookid = bookid;
+    public Authors(int id, int bookId, String name, int age) {
+        this.id = id;
+        this.bookId = bookId;
         this.name = name;
         this.age = age;
     }
-
     public Authors() {
+
     }
 
-    public int getBookid() {
-        return bookid;
+    public int getId() {
+        return id;
     }
 
-    public void setBookid(int bookid) {
-        this.bookid = this.bookid;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookd) {
+        this.bookId = bookId;
     }
 
     public String getName() {
@@ -27,7 +37,7 @@ public class Authors {
     }
 
     public void setName(String name) {
-        this.name = this.name;
+        this.name = name;
     }
 
     public int getAge() {

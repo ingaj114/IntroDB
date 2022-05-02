@@ -53,7 +53,6 @@ public class StudentController {
                 student.setAge(age);
             }
             return student;
-
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

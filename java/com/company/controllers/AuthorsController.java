@@ -1,6 +1,7 @@
 package com.company.controllers;
 
 import com.company.objects.Authors;
+import com.company.objects.Student;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,24 +32,26 @@ public class AuthorsController {
         }
     }
 
-    public static Authors getAuthorById() {
-        System.out.print("Enter author's id: ");
+    public static Authors getAuthorsById() {
+        System.out.print("Enter the id: ");
         int id = scanner.nextInt();
 
         try {
-            ps = getConnection().prepareStatement("SELECT * FROM authors WHERE bookid =" + id);
+            ps = getConnection().prepareStatement("SELECT * FROM authors WHERE id =" + id);
             rs = ps.executeQuery();
 
-            int bookid, age;
+            int authorId, bookId, age;
             String name;
 
             Authors authors = new Authors();
 
-            while(rs.next()) {
-                bookid = rs.getInt("id");
+            while (rs.next()) {
+                authorId = rs.getInt("id");
+                bookId = rs.getInt("bookid");
                 name = rs.getString("name");
                 age = rs.getInt("age");
-                authors.setBookid(bookid);
+                authors.setId(authorId);
+                authors.setBookId(bookId);
                 authors.setName(name);
                 authors.setAge(age);
             }
