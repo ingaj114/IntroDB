@@ -19,7 +19,7 @@ public class Authors {
     }
 
     public void setBookid(int bookid) {
-        this.bookid = bookid;
+        this.bookid = this.bookid;
     }
 
     public String getName() {
@@ -27,7 +27,7 @@ public class Authors {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = this.name;
     }
 
     public int getAge() {

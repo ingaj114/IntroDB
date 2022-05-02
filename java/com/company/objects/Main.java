@@ -1,31 +1,29 @@
 package com.company.objects;
 import com.company.dbhelper.DbConnection;
 import com.company.login.Auth;
-import com.company.menu.BooksMenu;
+import java.util.Scanner;
 import com.company.menu.StudentMenu;
 
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose an option: ");
+        System.out.println("1. Login");
+        System.out.println("2. Sign up");
+        int option = scanner.nextInt();
 
-//        if (Auth.signUp()) {
-//            StudentMenu.menu();
-//        } else {
-//            System.out.println("Invalid login credentials");
-//        }
-        StudentMenu.menu();
-    }
-/*    //TASK
-    //Create a BOOKControl and also Create a Book Menu
-    //using a template shown and we'll demo them
-        public static List<String> filterLessThanFive(List<Books> books) {
-            List<String> bookNames = new ArrayList<>();
-            for (int i = 0; i < books.size(); i++) {
-                if (books.get(i).getPrice() < 5) books.remove(books.get(i));
+        switch (option) {
+            case 1: if (Auth.login()) {
+                StudentMenu.menu();
+            } else {
+                System.out.println("Invalid login credentials. Try again!");
             }
-            books.forEach(book -> bookNames.add(book.getName()));
+                break;
+            case 2:
+                Auth.signUp();
+                break;
+        }
 
-            return bookNames;
-    }*/
+    }
 }
