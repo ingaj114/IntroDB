@@ -1,7 +1,5 @@
 package com.company.login;
 
-import com.company.objects.Password;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +7,7 @@ import java.util.Scanner;
 import static com.company.dbhelper.DbConnection.getConnection;
 
 public class Auth {
-    /*//Authentication
+    //Authentication
 
     // Create a table called users that have the following fields with the following properties:
     // id -> serial, primary key
@@ -63,7 +61,6 @@ public class Auth {
         System.out.print("Enter your password: ");
         String password = scanner.next();
 
-        Password psw = new Password();
         try {
             //SELECT password FROM users WHERE password IN ('');
             ps = getConnection().prepareStatement("SELECT username, password FROM users " +
@@ -76,9 +73,6 @@ public class Auth {
                 username2 = rs.getString("username");
                 password2 = rs.getString("password");
 
-                psw.setUsername();
-                psw.setPassword();
-
                 if (password2.equals(password) && username2.equalsIgnoreCase(username)) {
                     return true;
                 } else {
@@ -90,4 +84,5 @@ public class Auth {
         }
         return false;
     }
+
 }

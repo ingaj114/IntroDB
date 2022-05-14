@@ -32,8 +32,8 @@ public class StudentController {
     }
 
     public static Student getStudentById() {
-        System.out.print("Enter the id: ");
-        int id = scanner.nextInt();
+            System.out.print("Enter the id: ");
+            int id = scanner.nextInt();
 
         try {
             ps = getConnection().prepareStatement("SELECT * FROM students WHERE id =" + id);

@@ -1,4 +1,4 @@
-package com.company.objects;
+package com.company;
 import com.company.dbhelper.DbConnection;
 import com.company.login.Auth;
 import java.util.Scanner;
@@ -9,6 +9,8 @@ import com.company.menu.StudentMenu;
 
 public class Main {
     public static void main(String[] args) {
+
+//        DbConnection.getConnection();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose an option: ");
         System.out.println("1. Login");
@@ -26,7 +28,7 @@ public class Main {
                 Auth.signUp();
                 break;
         }
-        //StudentMenu.menu();
+        StudentMenu.menu();
         System.out.println();
         AuthorsMenu.menu();
 
